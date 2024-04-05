@@ -1,6 +1,6 @@
 import streamlit as st
-from sklearn.datasets import fetch_20newsgroups
 import sklearn as sl
+from sklearn.datasets import fetch_20newsgroups
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
