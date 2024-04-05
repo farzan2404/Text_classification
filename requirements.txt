@@ -1,0 +1,5 @@
+streamlit
+fetch_20newsgroups
+Pipeline
+TfidfVectorizer
+MultinomialNB
