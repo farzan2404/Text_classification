@@ -30,7 +30,7 @@ text_clf = Pipeline([('vect', TfidfVectorizer()),
 text_clf.fit(news_train.data, news_train.target)
 
 # Streamlit UI
-st.title("News Category Classifier")
+st.title("TopicTagger - A News Category Predition System.")
 
 # Text input for user to provide the news text
 news_text = st.text_area("Enter your news text here:")
@@ -47,16 +47,10 @@ if st.button("Classify"):
     else:
         st.warning("Please enter a news text for classification.")
 
-st.write("Additional Test Data:")
+st.write("Sample results: ")
 additional_test_data = [
     "I'm selling my old computer monitor online.",
     "I'm considering buying a new motorcycle.",
-    "The recent space exploration mission was a significant achievement.",
-    "I'm interested in learning more about computer security.",
-    "I'm selling my old computer monitor online.",
-    "Atheists and theists engage in thought-provoking debates.",
-    "Christian values promote love, compassion, and forgiveness.",
-    "Graphic designers bring imagination to life on the screen."
 #     "Advancements in medical science offer hope for the future.",
 #     "Mac hardware enthusiasts are always on the cutting edge.",
 #     "Experience a world of creativity through computer graphics.",
