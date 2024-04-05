@@ -1,9 +1,9 @@
 import streamlit as st
 from sklearn.datasets import fetch_20newsgroups
+import sklearn as sl
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
-
 
 # Load the training data
 categories = ['alt.atheism', 'soc.religion.christian', 'comp.graphics', 'sci.med','comp.sys.mac.hardware',
@@ -22,11 +22,11 @@ categories = ['alt.atheism', 'soc.religion.christian', 'comp.graphics', 'sci.med
     'talk.religion.misc',
     'comp.sys.ibm.pc.hardware',
     'comp.os.ms-windows.misc']
-news_train = fetch_20newsgroups(subset='train', categories=categories, shuffle=True, random_state=42)
-news_test = fetch_20newsgroups(subset='test', categories=categories, shuffle=True, random_state=42)
+news_train = sl.datasets.fetch_20newsgroups(subset='train', categories=categories, shuffle=True, random_state=42)
+news_test = sl.datasets.fetch_20newsgroups(subset='test', categories=categories, shuffle=True, random_state=42)
 
-text_clf = Pipeline([('vect', TfidfVectorizer()),
-                    ('clf', MultinomialNB())])
+text_clf = Pipeline([('vect', sl.feature_extraction.text.TfidfVectorizer()),
+                    ('clf', sl.naive_bayes.MultinomialNB())])
 text_clf.fit(news_train.data, news_train.target)
 
 # Streamlit UI
